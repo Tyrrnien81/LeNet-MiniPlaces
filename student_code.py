@@ -69,10 +69,17 @@ def count_model_params():
     '''
     return the number of trainable parameters of LeNet.
     '''
-    model = LeNet()
-    model_params = 0.0
+    model = LeNet() # Initialize the LeNet model
+    model_params = 0.0 # Initialize the variable to store the number of parameters
 
-    return model_params
+    # Loop through the model parameters to check the name and parameters
+    for name, param in model.named_parameters():
+        if param.requires_grad: # Check if the parameter requires gradient (i.e. is trainable)
+            model_params += param.numel() # Add the number of elements in each parameters
+            print(f"{name}: {param.numel()}")
+
+    # Return the number of parameters in millions
+    return model_params / 1e6
 
 
 def train_model(model, train_loader, optimizer, criterion, epoch):

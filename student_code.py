@@ -22,6 +22,8 @@ class LeNet(nn.Module):
         # The second convolutional layer has 6 input channels and 16 output channels
         self.conv2 = nn.Conv2d(in_channels=6, out_channels=16, kernel_size=5, stride=1)
 
+        # The First fully connected layer has 16 * 5 * 5 input vectors and 256 output neurons
+        self.fc1 = nn.Linear(16 * 5 * 5, 256)
 
 
 

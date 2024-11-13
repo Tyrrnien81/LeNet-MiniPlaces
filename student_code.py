@@ -41,6 +41,10 @@ class LeNet(nn.Module):
         x = torch.max_pool2d(x, kernel_size=2, stride=2)
         shape_dict[2] = list(x.shape)
 
+        # Flatten the 3D tensor to a 1D to prepare for fully connected layers
+        x = x.view(-1, 16 * 5 * 5)
+        shape_dict[3] = list(x.shape)
+
 
 
 

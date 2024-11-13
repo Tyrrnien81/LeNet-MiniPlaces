@@ -47,7 +47,9 @@ class LeNet(nn.Module):
         x = x.view(-1, 16 * 5 * 5)
         shape_dict[3] = list(x.shape)
 
-
+        # Add non-linearity to the first fully connected layer
+        x = torch.relu(self.fc1(x))
+        shape_dict[4] = list(x.shape)
 
 
         return x, shape_dict

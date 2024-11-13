@@ -26,6 +26,8 @@ class LeNet(nn.Module):
         self.fc1 = nn.Linear(16 * 5 * 5, 256)
         # The Second fully connected layer has 256 input vectors and 128 output neurons
         self.fc2 = nn.Linear(256, 128)
+        # The Third fully connected layer has 128 input vectors and num_classes output neurons
+        self.fc3 = nn.Linear(128, num_classes)
 
 
     def forward(self, x):
@@ -55,6 +57,10 @@ class LeNet(nn.Module):
         # Add non-linearity to the second fully connected layer
         x = torch.relu(self.fc2(x))
         shape_dict[5] = list(x.shape)
+
+        # Fully connected layer to get the final output
+        x = self.fc3(x)
+        shape_dict[6] = list(x.shape)
 
         return x, shape_dict
 

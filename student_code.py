@@ -35,6 +35,14 @@ class LeNet(nn.Module):
         x = torch.max_pool2d(x, kernel_size=2, stride=2)
         shape_dict[1] = list(x.shape)
 
+        # After the second convolutional layer, change the negative values to 0
+        x = torch.relu(self.conv2(x))
+        # Max pooling to reduce the size of the image, and keep only important details
+        x = torch.max_pool2d(x, kernel_size=2, stride=2)
+        shape_dict[2] = list(x.shape)
+
+
+
 
         return x, shape_dict
 

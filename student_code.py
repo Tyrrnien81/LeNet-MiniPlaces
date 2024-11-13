@@ -17,10 +17,16 @@ class LeNet(nn.Module):
         super(LeNet, self).__init__()
         # certain definitions
 
+        # The first convolutional layer has 3 input channels and 6 output channels
+        self.conv1 = nn.Conv2d(in_channels=3, out_channels=6, kernel_size=5, stride=1)
+
+
     def forward(self, x):
         shape_dict = {}
         # certain operations
-        return out, shape_dict
+
+
+        return x, shape_dict
 
 
 def count_model_params():

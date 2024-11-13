@@ -19,6 +19,10 @@ class LeNet(nn.Module):
 
         # The first convolutional layer has 3 input channels and 6 output channels
         self.conv1 = nn.Conv2d(in_channels=3, out_channels=6, kernel_size=5, stride=1)
+        # The second convolutional layer has 6 input channels and 16 output channels
+        self.conv2 = nn.Conv2d(in_channels=6, out_channels=16, kernel_size=5, stride=1)
+
+
 
 
     def forward(self, x):

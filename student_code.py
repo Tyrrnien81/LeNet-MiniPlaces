@@ -52,6 +52,9 @@ class LeNet(nn.Module):
         x = torch.relu(self.fc1(x))
         shape_dict[4] = list(x.shape)
 
+        # Add non-linearity to the second fully connected layer
+        x = torch.relu(self.fc2(x))
+        shape_dict[5] = list(x.shape)
 
         return x, shape_dict
 

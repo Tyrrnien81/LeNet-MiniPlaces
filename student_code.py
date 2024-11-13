@@ -24,7 +24,8 @@ class LeNet(nn.Module):
 
         # The First fully connected layer has 16 * 5 * 5 input vectors and 256 output neurons
         self.fc1 = nn.Linear(16 * 5 * 5, 256)
-
+        # The Second fully connected layer has 256 input vectors and 128 output neurons
+        self.fc2 = nn.Linear(256, 128)
 
 
     def forward(self, x):
